@@ -25,15 +25,13 @@ class Studie {
      * @param string $start
      * @param string $end
      */
-
+    
     public function addStudie(string $uni, string $edu, string $start, string $end) : bool {
         $this->uni = $uni;
         $this->edu = $edu;
         $this->start = $start;
         $this->end = $end;
-        
         // Check for empty values
-        
             // Prepare statement 
             $stmt = $this->db->prepare("INSERT INTO studies (uni, edu, start, end) VALUES (?, ?, ?, ?)");
             $stmt->bind_param("ssss", $this->uni, $this->edu, $this->start, $this->end);
@@ -43,12 +41,9 @@ class Studie {
             } else {
                 return false;
             }
-
             $stmt->close();
-    }
+    }  
 
-        
-    
     /**
      * Get studies
      * @return array
@@ -60,9 +55,6 @@ class Studie {
 
          return $result->fetch_all(MYSQLI_ASSOC);
      }
-
-
-
 
      /**
       * Delete studie by id

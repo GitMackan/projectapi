@@ -51,8 +51,9 @@ switch($method) {
             $response = array("message" => "Created");
 
             http_response_code(201); //Created
+            
         } else {
-            $response = array("message" => "Something went wrong. Please enter all values");
+            $response = array("message" => "Something went wrong");
             http_response_code(500); // Server error
         }
         

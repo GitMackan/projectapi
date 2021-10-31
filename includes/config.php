@@ -1,6 +1,6 @@
 <?php
 
-$devMode = true;
+$devMode = false;
 
 if($devMode) {
     error_reporting(-1);

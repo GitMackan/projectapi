@@ -8,7 +8,9 @@ if($db->connect_errno > 0) {
     die("Fel vid anslutning: " . $db->connect_error);
 }
 // Skapa/Återställ databaser
-$sql = "DROP TABLE IF EXISTS studies;";
+$sql = "DROP TABLE IF EXISTS sites;";
+$sql .= "DROP TABLE IF EXISTS studies;";
+$sql .= "DROP TABLE IF EXISTS jobs;";
 $sql .= "
 CREATE TABLE studies(
     id INT(11) PRIMARY KEY AUTO_INCREMENT,
@@ -38,10 +40,10 @@ CREATE TABLE sites(
 
 
 $sql .= "
-    INSERT INTO studies(uni, edu, start, end) VALUES ('Hamreskolan', 'Mellanstadiet', '1994-02-10', '2002-04-14');
+    INSERT INTO studies(uni, edu, start, end) VALUES ('Hamreskolan', 'Mellanstadiet', '1994-10-10', '2002-04-10');
 ";
 $sql .= "
-    INSERT INTO jobs(job, title, start, end) VALUES ('Aroslunds Livs', 'Butiksbiträde', '2007-02-10', '20012-04-14');
+    INSERT INTO jobs(job, title, start, end) VALUES ('Aroslunds Livs', 'Butiksbiträde', '2007-02-10', '2012-04-10');
 ";
 $sql .= "
     INSERT INTO sites(title, url, info) VALUES ('Projektsida', 'www.google.com', 'Min hemsida för projektet i föregående kurs');
